@@ -1,0 +1,51 @@
+
+
+Login page 				(index.php -> login_action.php)
+Contact listing page 	(contacts.php)
+Add contact 			(add_contact.php -> add_contact_action.php)
+Edit contact 			(edit_contact.php -> edit_contact_action.php)
+Change password 		(change_password.php -> change_password_action.php)
+
+Delete contact
+Logout
+
+
+dbname: phonebook
+
+tables:
+
+users
+- user_id
+- full_name
+- email_id
+- password
+- status
+
+contacts
+- contact_id
+- contact_full_name
+- contact_email_id
+- contact_phone_no
+- contact_group_id
+- user_id
+
+contact_groups
+- contact_group_id (tinyint)
+- contact_group_name (varchar 100)
+
+
+
+
+
+
+
+CREATE TABLE `phonebook`.`users` (`user_id` BIGINT NOT NULL AUTO_INCREMENT , `full_name` VARCHAR(150) NOT NULL , `email_id` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , `status` TINYINT NOT NULL , PRIMARY KEY (`user_id`)) ENGINE = InnoDB;
+
+
+
+CREATE TABLE `phonebook`.`contacts` (`contact_id` BIGINT NOT NULL AUTO_INCREMENT , `contact_full_name` VARCHAR(150) NOT NULL , `contact_email_id` VARCHAR(100) NOT NULL , `contact_phone_no` VARCHAR(50) NOT NULL , `contact_group_id` TINYINT NOT NULL , `user_id` BIGINT NOT NULL , PRIMARY KEY (`contact_id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `phonebook`.`contact_groups` (`contact_group_id` TINYINT NOT NULL AUTO_INCREMENT , `contact_group_name` VARCHAR(100) NOT NULL , PRIMARY KEY (`contact_group_id`)) ENGINE = InnoDB;
+
+
